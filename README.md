@@ -1,9 +1,9 @@
 # zdesktop.py
-Z!Desktop Python Implementation
+ZDesktop Python Implementation
 
 ## Requirement
-* Python 2 / 3
-* `requests`
+* python2.7 or python>=3.4
+* `requests`. To install this library, type `pip install requests` at your terminal.
 
 ## Usage
 ```
@@ -13,7 +13,7 @@ username: <UserId>
 password: <UserPw>
 
 /api/login OK
-/api/client/2016125003/vms OK
+/api/client/<UserId>/vms OK
 /api/vm/<VmID>/start OK
 /api/session/connect ERR (session.error.vm.state) retry after 10 seconds ..
 /api/session/connect ERR (session.error.guesttool.not.running) retry after 10 seconds ..
