@@ -2,29 +2,35 @@
 ZDesktop Python Implementation
 
 ## Requirement
-* python2.7 or python>=3.4
-* `requests`. To install this library, type `pip install requests` at your terminal.
+* `python 2.7 or python>=3.4`
+* `pip`
+* `requests`
+
+### Installation on macOS
+
+1. Open Terminal.app
+2. Type below commands
+```bash
+$ sudo easy_install pip
+$ pip install requests
+```
 
 ## Usage
 ```
-$ python3 zdesktop.py
-server ip and port: <ServerIP:Port>
-username: <UserId>
-password: <UserPw>
+$ python zdesktop.py
+server ip and port: <Server IP:Port>
+username: <User ID>
+password: <User Password>
 
 /api/login OK
 /api/client/<UserId>/vms OK
 /api/vm/<VmID>/start OK
 /api/session/connect ERR (session.error.vm.state) retry after 10 seconds ..
 /api/session/connect ERR (session.error.guesttool.not.running) retry after 10 seconds ..
-/api/session/connect ERR (session.error.guesttool.not.running) retry after 10 seconds ..
-/api/session/connect ERR (session.error.guesttool.not.running) retry after 10 seconds ..
-/api/session/connect ERR (session.error.guesttool.not.running) retry after 10 seconds ..
-/api/session/connect ERR (session.error.guesttool.not.running) retry after 10 seconds ..
 
-ip address: <ServerIP>:<Port>
-windows id: <WindowsID>
-windows password: <WindowsPW>
+ip address: <Server IP>:<Port>
+windows id: <Windows ID>
+windows password: <Windows Password>
 ```
 
 ## License
