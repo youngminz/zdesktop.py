@@ -4,17 +4,29 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 try:
-    input = raw_input
+    input = raw_input  # Python 2.7
 except NameError:
     pass
 
 import requests
 import json
 import time
+try:
+    from ConfigParser import ConfigParser  # Python 2.7
+except:
+    from configparser import ConfigParser  # Python 3
 
-server = input("server ip and port: ")  # Example: 123.123.123.123:1234
-login_id = input("username: ")
-login_password = input("password: ")
+try:
+    config = ConfigParser()
+    config.read("settings.ini")
+    server = config["account"]["server"]
+    login_id = config["account"]["login_id"]
+    login_password = config["account"]["login_password"]
+
+except:
+    server = input("server ip and port: ")
+    login_id = input("username: ")
+    login_password = input("password: ")
 
 print()
 
