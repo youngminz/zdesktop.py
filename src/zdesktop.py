@@ -33,7 +33,7 @@ except:
         login_id = input("username: ")
         login_password = input("password: ")
 
-print()
+        print()
 
 r = requests.post("http://{}/api/login".format(server),
                   headers={"User-Agent": "ZDCLIENT", "Cache-Control": "no-cache"},
