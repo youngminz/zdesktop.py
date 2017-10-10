@@ -13,20 +13,25 @@ import json
 import time
 try:
     from ConfigParser import ConfigParser  # Python 2.7
-except:
-    from configparser import ConfigParser  # Python 3
-
-try:
     config = ConfigParser()
     config.read("settings.ini")
-    server = config["account"]["server"]
-    login_id = config["account"]["login_id"]
-    login_password = config["account"]["login_password"]
+    server = config.get("account", "server")
+    login_id = config.get("account", "login_id")
+    login_password = config.get("account", "login_password")
 
 except:
-    server = input("server ip and port: ")
-    login_id = input("username: ")
-    login_password = input("password: ")
+    try:
+        from configparser import ConfigParser  # Python 3
+        config = ConfigParser()
+        config.read("settings.ini")
+        server = config["account"]["server"]
+        login_id = config["account"]["login_id"]
+        login_password = config["account"]["login_password"]
+
+    except:
+        server = input("server ip and port: ")
+        login_id = input("username: ")
+        login_password = input("password: ")
 
 print()
 
