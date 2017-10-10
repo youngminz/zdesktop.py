@@ -40,6 +40,8 @@ try:
 
     client_id = r.json()[0]["clientPreferences"][0]["clientId"]
     vm_id = r.json()[0]["clientPreferences"][0]["vmId"]
+
+    service_host_id = r.json()[0]["serviceHostId"]
     
     print("/api/client/{}/vms OK".format(login_id))
 except:
@@ -48,7 +50,7 @@ except:
 
 r = requests.post("http://{}/api/vm/{}/start".format(server, vm_id),
                   headers={"User-Agent": "ZDCLIENT", "Content-Type": "application/json"},
-                  params={"token": token, "endPointId": "1"}, data="{}")
+                  params={"token": token, "endPointId": str(service_host_id)}, data="{}")
 
 if r.status_code == 200:
     print("/api/vm/{}/start OK".format(vm_id))
