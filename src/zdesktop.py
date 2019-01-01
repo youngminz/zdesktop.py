@@ -54,7 +54,7 @@ r = requests.get("http://{}/api/client/{}/vms".format(server, login_id),
 isPwd = False
 try:
     for clientPreference in r.json()[0]["clientPreferences"]:
-        if(isPwd):
+        if(isPwd and clientPreference["value"] != "true"):
             password = clientPreference["value"]
             vm_id = clientPreference["vmId"]
             break;
