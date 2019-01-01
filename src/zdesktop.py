@@ -52,11 +52,11 @@ r = requests.get("http://{}/api/client/{}/vms".format(server, login_id),
                  params={"token": token})
 
 try:
-    login = r.json()[0]["clientPreferences"][1]["value"]
-    password = r.json()[0]["clientPreferences"][0]["value"]
+    login = r.json()[0]["clientPreferences"][3]["value"]
+    password = r.json()[0]["clientPreferences"][4]["value"]
 
-    client_id = r.json()[0]["clientPreferences"][0]["clientId"]
-    vm_id = r.json()[0]["clientPreferences"][0]["vmId"]
+    client_id = r.json()[0]["clientPreferences"][3]["clientId"]
+    vm_id = r.json()[0]["clientPreferences"][4]["vmId"]
 
     service_host_id = r.json()[0]["serviceHostId"]
     
