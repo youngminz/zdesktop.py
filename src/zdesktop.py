@@ -51,17 +51,17 @@ r = requests.get("http://{}/api/client/{}/vms".format(server, login_id),
                  headers={"User-Agent": "ZDCLIENT", "Content-Type": "plain/text"},
                  params={"token": token})
 
-isPwd = False
+is_password = False
 try:
     for clientPreference in r.json()[0]["clientPreferences"]:
-        if(isPwd and clientPreference["value"] != "true"):
+        if is_password and clientPreference["value"] != "true":
             password = clientPreference["value"]
             vm_id = clientPreference["vmId"]
             break;
-        if(clientPreference["value"] == "kau"):
+        if clientPreference["value"] == "kau":
             login = clientPreference["value"]
             client_id = clientPreference["clientId"]
-            isPwd = True
+            is_password = True
     service_host_id = r.json()[0]["serviceHostId"]
     
     print("/api/client/{}/vms OK".format(login_id))
